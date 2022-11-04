@@ -1,37 +1,54 @@
 const Employee = require ("../src/lib/Employee");
 
-describe("Employee", () =>{
-    const testEmployee ={
-        name : "Arnol",
-        id : 123,
-        email : "25sparnol@gmail.com"
-    };
-    describe("Creation Test",() =>{
-        test("Should create a new instance from employee class",()=>{
-            const empleado = new Employee(testEmployee);
-            expect(empleado).toBeInstanceOf(Employee);
-        });
-        test("Should create a new instance from employee class with their values", ()=>{
-            const empleado = new Employee(testEmployee);
-            expect(empleado).toEqual({
-                name : "Arnol",
-                id : 123,
-                email: "25sparnol@gmail.com" 
-            });
+describe("Employee", () => {
+    it("Should set name via constructor argument", () => {
+        const name = "Arnol";
+        const empleado = new Employee(name);
+        expect(empleado.name).toBe(name);
+    });
+
+    it("Should set id via constructor argument", () => {
+        const testId = 123;
+        const empleado = new Employee("Arnol", testId);
+        expect(empleado.id).toBe(testId);
+    });
+
+    it("Should set email via constructor argument", () => {
+        const testEmail = "25sparnol@gmail.com";
+        const empleado = new Employee("Arnol", 123, testEmail);
+        expect(empleado.email).toBe(testEmail);
+    });
+
+    describe("getName", () => {
+        it("Should return Name with the getName method", () => {
+            const testName = "Arnol";
+            const empleado = new Employee(testName);
+            expect(empleado.getName()).toBe(testName);
         });
     });
-    describe("method tests", ()=>{
-        test("Should return Name with the getName method",()=>{
-            const empleado = new Employee(testEmployee);
-            expect(empleado.getName()).toEqual("Arnol");
-        });
-        test("Should return id with the getId method", ()=>{
-            const empleado = new Employee(testEmployee);
-            expect(empleado.getId()).toEqual(123);
-        });
-        test("Should return Email with the getEmail method",()=>{
-            const empleado = new Employee(testEmployee);
-            expect(empleado.getEmail()).toEqual("25sparnol@gmail.com");
+        
+    describe("getId", () => {
+        it("Should return id with the getId method", () => {
+            const testId = 123;
+            const empleado = new Employee("Arnol", testId);
+            expect(empleado.getId()).toBe(testId);
         });
     });
+        
+    describe("getEmail", () => {
+        it("Should return email with the getEmail method", () => {
+            const testEmail = "25sparnol@gmail.com";
+            const empleado = new Employee("Foo", 123, testEmail);
+            expect(empleado.getEmail()).toBe(testEmail);
+        });
+    });
+        
+    describe("getRole", () => {
+        it("Should return Role with the getRole method", () => {
+            const testRole = "Employee";
+            const empleado = new Employee("Arnol", 123, "25sparnol@gmail.com");
+            expect(empleado.getRole()).toBe(testRole);
+        });
+    });
+    
 });

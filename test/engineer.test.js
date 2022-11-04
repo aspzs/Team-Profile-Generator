@@ -1,43 +1,19 @@
 const Engineer = require ("../src/lib/Engineer");
 
-describe("Engineer", () =>{
-    const testEngineer ={
-        name : "Arnol",
-        id : 234,
-        email : "25sparnol@gmail.com",
-        gitHub : "https://github.com/aspzs"
-    };
-    describe("Creation Test",() =>{
-        test("Should create a new instance from Engineer class",()=>{
-            const inge = new Engineer(testEngineer);
-            expect(inge).toBeInstanceOf(testEngineer);
-        });
-        test("Should create a new instance from Engineer class with their values", ()=>{
-            const inge = new Engineer(testEngineer);
-            expect(empleado).toEqual({
-                name : "Arnol",
-                id : 234,
-                email: "25sparnol@gmail.com",
-                gitHub : "https://github.com/aspzs"
-            });
-        });
-    });
-    describe("method tests", ()=>{
-        test("Should return Name with the getName method",()=>{
-            const inge = new Engineer(testEngineer);
-            expect(inge.getName()).toEqual("Arnol");
-        });
-        test("Should return id with the getId method", ()=>{
-            const inge = new Engineer(testEngineer);
-            expect(inge.getId()).toEqual(234);
-        });
-        test("Should return Email with the getEmail method",()=>{
-            const inge = new Engineer(testEngineer);
-            expect(inge.getEmail()).toEqual("25sparnol@gmail.com");
-        });
-        test("Should return github account with the getGitHub method", ()=>{
-            const inge = new Engineer(testEngineer);
-            expect(inge.getGitHub()).toEqual("https://github.com/aspzs");
-        });
-    });
-});
+test("Should set GitHUb account via constructor", () => {
+    const testGitHub = "aspzs";
+    const engineer = new Engineer("Arnol", 123, "25sparnol@gmail.com", testGitHub);
+    expect(engineer.gitHub).toBe(testGitHub);
+  });
+  
+  test("Should return the Engineer role with the getRole method", () => {
+    const testRole = "Engineer";
+    const engineer = new Engineer("Arnol", 123, "25sparnol@gmail.com", "aspzs");
+    expect(engineer.getRole()).toBe(testRole);
+  });
+  
+  test("Should return the GitHub username  with the getGitHub method", () => {
+    const testUsername = "aspzs";
+    const engineer = new Engineer("Arnol", 123, "25sparnol@gmail.com", testUsername);
+    expect(engineer.getGitHub()).toBe(testUsername);
+  });
