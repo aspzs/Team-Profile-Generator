@@ -1,4 +1,4 @@
-const Employee = require ("../src/lib/Employee");
+const Employee = require ("../src/src/lib/Employee");
 
 describe("Employee", () => {
     it("Should set name via constructor argument", () => {

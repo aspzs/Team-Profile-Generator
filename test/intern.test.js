@@ -1,4 +1,4 @@
-const Intern = require ("../src/lib/Intern");
+const Intern = require ("../src/src/lib/Intern");
 
 test("Should set School name via constructor", () => {
     const testSchool = "test";

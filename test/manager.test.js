@@ -1,4 +1,4 @@
-const Manager = require ("../src/lib/Manager");
+const Manager = require ("../src/src/lib/Manager");
 
 test("Should set Office Number via constructor", () => {
     const testNumber = "000";
